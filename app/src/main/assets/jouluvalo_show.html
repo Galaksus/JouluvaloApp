@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jouluvalo_show.css">
+</head>
+
+<body>
+    <h1 style="color: rgb(202, 20, 20);">Jouluvalot ;))</h1>
+
+
+    <div class="main-container">
+        <!-- Rounded switch 1 -->
+        <p class="white-text-color" id="lights-status">Lights: OFF</p>
+        <div class="switch-container">
+            <label class="switch" >
+                <input type="checkbox" id="switch-1">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <!-- Rounded switch 2 -->
+        <p class="white-text-color" id="dimmer-status">Dimmer: Manual</p>
+        <div class="switch-container">
+            <label class="switch" >
+                <input type="checkbox" id="switch-2">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="slider-container">
+            <!-- Sliders and associated labels--> 
+            <label class="slider-label white-text-color" for="range1">Dimmer:</label>
+            <span class="center-div white-text-color" id="value1"></span>
+            <input class="center-div" type="range" id="range1" min="0" max="255" value="255">
+        </div>
+
+        <div class="slider-container">
+            <label class="slider-label white-text-color" for="range2">Fade:</label>
+            <span  class="center-div white-text-color" id="value2"></span>
+            <input class="center-div" type="range" id="range2" min="1" max="50" value="10">
+        </div>
+        
+
+            <img src="bluetooth-icon.svg" id="bluetooth-icon">
+    <!-- The bluetooth dialog container -->
+    <div id="bluetooth-dialog" onclick="closeDialog(this);">
+        <div id="bluetooth-dialog-container" onclick="event.stopPropagation();">
+            <!-- Header content -->
+            <div id="bluetooth-header-content">
+                Bluetooth
+                <span id="bluetooth-closeDialogButton"
+                onclick="closeDialog(document.getElementById('bluetooth-dialog'))">&#10006;</span>
+            </div>
+            <div id="bluetooth-dialog-content">
+
+                <div id="bluetooth-connection-state" Type>
+                    <span id="connection-state-text"> </span>
+                </div>
+                <div class="center-div">
+                    <button id="connect-bluetooth-button" class="button-class">Connect</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    <script src="jouluvalo_show.js"></script>
+
+</body>
+
+</html>
