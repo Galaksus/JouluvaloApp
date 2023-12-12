@@ -188,7 +188,7 @@ delaySlider.addEventListener("input", function () {
   // Scale the values
   var scaledValueSingleCycleToFullCycle = (originalValue*255*2)/1000; // To get seconds of the full cycle 0 to 255 to 0
 
-    delaySliderValue.textContent = `${scaledValueSingleCycleToFullCycle.toFixed(2)} s`;
+    delaySliderValue.textContent = `${(scaledValueSingleCycleToFullCycle*(parseInt(dimmerSlider.value) / 255)).toFixed(2)} s`; // So this fade value takes into account the dimmerSlider value too 
     Android.JSToBLEInterface(
       BLEConnectedElementIDs.delaySlider_,
       parseInt(delaySlider.value)
