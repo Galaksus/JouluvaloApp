@@ -118,6 +118,7 @@ LightSwitch.addEventListener("change", function () {
         );
     }
 });
+LightSwitch.checked = true; // Initialize with checked = true
 
 dimmerSwitch.addEventListener("change", function () {
     // Your logic when the switch is toggled
@@ -128,6 +129,8 @@ dimmerSwitch.addEventListener("change", function () {
     if (!dimmerSwitch.checked) {
         // If checkbox is checked, update the text
         dimmerParagraph.textContent = "Dimmer: Manual";
+        document.getElementsByClassName("slider-container")[0].style.display = "block";
+        document.getElementsByClassName("slider-container")[1].style.display = "none";
         Android.JSToBLEInterface(
           BLEConnectedElementIDs.commonWidget_,
           requiredModes.dimmerManual
@@ -135,6 +138,9 @@ dimmerSwitch.addEventListener("change", function () {
     } else {
         // If checkbox is not checked, update the text
         dimmerParagraph.textContent = "Dimmer: Automatic";
+        document.getElementsByClassName("slider-container")[0].style.display = "none";
+        document.getElementsByClassName("slider-container")[1].style.display = "block";
+
         Android.JSToBLEInterface(
           BLEConnectedElementIDs.commonWidget_,
           requiredModes.dimmerAuto

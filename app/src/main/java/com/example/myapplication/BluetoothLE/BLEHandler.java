@@ -53,7 +53,7 @@ public class BLEHandler {
     public static final UUID DIMMER_CHARACTERISTIC_UUID = UUID.fromString("20e88205-d8cd-42a9-bcfa-4b599484d362");
     public static final UUID MANUAL_MODE_DATA_CHARACTERISTIC_UUID = UUID.fromString("2f926b0c-c378-474e-8ced-3194b815aedd");
     public static final UUID MODE_CHARACTERISTIC_UUID = UUID.fromString("5ff534ba-c2f2-4e41-8350-f016bbb2bf0f");
-    public static final UUID OUTBOARDMOTOR_CHARACTERISTIC_UUID = UUID.fromString("f53de08c-1c0c-459a-a6d5-cd26a1523060");
+    public static final UUID COMMON_CHARACTERISTIC_UUID = UUID.fromString("f53de08c-1c0c-459a-a6d5-cd26a1523060");
 
     private LayoutInflater mInflater;
 

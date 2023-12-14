@@ -60,11 +60,8 @@ public class JavaScriptInterface  {
 
     UUID getCorrectUUID(int id){
         UUID uuid = null;
-        if (id == 0) {
-            uuid = BLEHandler.MANUAL_MODE_DATA_CHARACTERISTIC_UUID;
-        }
-        else if (id == 1) {
-            uuid = BLEHandler.OUTBOARDMOTOR_CHARACTERISTIC_UUID;
+        if (id == 1) {
+            uuid = BLEHandler.COMMON_CHARACTERISTIC_UUID;
         }
         else if (id == 2){
             uuid = BLEHandler.DELAY_CHARACTERISTIC_UUID;
