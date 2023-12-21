@@ -53,9 +53,11 @@ function setBluetoothConnectionStateText(BLEState) {
     switch (BluetoothConnectionState) {
       case 1:
       case 2:
-      case 12:
         BluetoothConnectionText.style.color = "green"; // Connected (green color)
         ConnectBluetoothButton.disabled = true;
+        BluetoothButton.src = 'bluetooth-icon-green.svg';
+
+        Android.BLEReadRequest(); // Tää ei toimi (BLEHandlerin puolella Androidin Java-koodissa siis)
         break;
       case 0:
       case 3:
@@ -63,10 +65,17 @@ function setBluetoothConnectionStateText(BLEState) {
       case 11:
         BluetoothConnectionText.style.color = "red"; // Disconnected, Disconnecting, or Device not found (red color)
         ConnectBluetoothButton.disabled = false;
+        BluetoothButton.src = 'bluetooth-icon-red.svg';
+        break;
+      case 12:
+        BluetoothConnectionText.style.color = "blue"; // Scanning
+        ConnectBluetoothButton.disabled = true;
+        BluetoothButton.src = 'bluetooth-icon-blue.svg';
         break;
       default:
         BluetoothConnectionText.style.color = defaultColor;
         ConnectBluetoothButton.disabled = false;
+        BluetoothButton.src = 'bluetooth-icon-gray.svg';
         break;
     }
   } else {

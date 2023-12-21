@@ -13,7 +13,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.myapplication.BluetoothLE.BLEHandler;
+
 public class MainActivity extends AppCompatActivity  {
+    BLEHandler blehandler;
 
     public static WebView mywebView;
     @Override
@@ -49,12 +52,16 @@ public class MainActivity extends AppCompatActivity  {
         mywebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
-                // Tänne voi laittaa jotain :D
+                // Try to connect bluetooth
+                // Must be called here so that the UI text can be updated according to BLE connection
+                blehandler = new BLEHandler(MainActivity.this, MainActivity.this);
+                blehandler.startLeDeviceScanning();
             }
         });
+
+
+
     }
-
-
 
 
 

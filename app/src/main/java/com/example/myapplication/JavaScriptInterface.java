@@ -22,12 +22,13 @@ public class JavaScriptInterface  {
     private Context context;
     private Activity mainActivity;
     BLEHandler blehandler;
+
     private SensorManager sensorManager;
 
     public JavaScriptInterface(Context context, Activity activity) {
         this.context = context;
         mainActivity = activity;
-
+        blehandler = new BLEHandler(mainActivity, this.context);
 
     }
 
@@ -42,7 +43,7 @@ public class JavaScriptInterface  {
     @JavascriptInterface
     public void connectBluetooth() {
         // Creates new instance everytime this method is called, also calls the startLeDeviceScanning
-        blehandler = new BLEHandler(mainActivity, this.context);
+        //blehandler = new BLEHandler(mainActivity, this.context);
         blehandler.startLeDeviceScanning();
     }
 
@@ -55,7 +56,13 @@ public class JavaScriptInterface  {
 
     }
 
+    @JavascriptInterface
+    public void BLEReadRequest() {
+        Log.e("mydebug2", "ködslhg");
 
+
+        blehandler.readCharacteristic();
+    }
 
 
     UUID getCorrectUUID(int id){

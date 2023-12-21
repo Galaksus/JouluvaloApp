@@ -221,6 +221,7 @@ public class BLEHandler {
                 Log.e(TAG, "State == CONNECTED");
                 // Connection established, start discovering services
                 if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+
                     return;
                 }
 
@@ -408,7 +409,34 @@ public class BLEHandler {
 
     }
 
+    public void readCharacteristic() {
+        /** Ei toimi kyl jostain syystä, toi service on vaan nullina :( */
+        // Get the BluetoothGattCharacteristic for reading
+        BluetoothGattService service = bluetoothGatt.getService(SERVICE_UUID);
 
+        if (service == null) {
+            Log.e(TAG, "Service not found");
+            return;
+        }
 
-        // TODO tänne send ja read metodit
+        // Get the desired characteristic
+        BluetoothGattCharacteristic characteristic = service.getCharacteristic(MANUAL_MODE_DATA_CHARACTERISTIC_UUID);
+        if (characteristic == null) {
+            Log.e(TAG, "Characteristic not found");
+            return;
+        }
+
+        // Read the characteristic value
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        boolean success = bluetoothGatt.readCharacteristic(characteristic);
+        if (success) {
+            Log.e(TAG, "Characteristic read request sent successfully");
+        } else {
+            Log.e(TAG, "Failed to send characteristic read request");
+        }
+
+    }
+
 }
