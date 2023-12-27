@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onPageFinished(WebView view, String url) {
                 // Try to connect bluetooth
-                // Must be called here so that the UI text can be updated according to BLE connection
-                blehandler = new BLEHandler(MainActivity.this, MainActivity.this);
-                blehandler.startLeDeviceScanning();
+                // the BLE connection is called through jsInterface,
+                // so that a correct instance is used for all BLE connection related things
+                jsInterface.connectBluetooth();
             }
         });
 
