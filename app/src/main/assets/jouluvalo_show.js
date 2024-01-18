@@ -165,10 +165,10 @@ dimmerSlider.addEventListener("input", function () {
 
   // Scale the values
   var scaledValue0to100 = (originalValue / 255) * 100;
-  var scaledValue0to5 = (originalValue / 255) * 5;
+  var scaledValue0to3 = (originalValue / 255) * 3;
 
   // Update the textContent of dimmerSliderValue with the scaled values
-  dimmerSliderValue.textContent = `${scaledValue0to100.toFixed(0)} % | ${scaledValue0to5.toFixed(2)} V`;
+  dimmerSliderValue.textContent = `${scaledValue0to100.toFixed(0)} % | ${scaledValue0to3.toFixed(2)} V`;
 
       Android.JSToBLEInterface(
         BLEConnectedElementIDs.dimmerSlider_,
@@ -191,10 +191,10 @@ dimmerSlider.addEventListener("input", function () {
 
   // Scale the values
   var scaledValue0to100 = (originalValue / 255) * 100;
-  var scaledValue0to5 = (originalValue / 255) * 5;
+  var scaledValue0to3 = (originalValue / 255) * 3;
 
   // Update the textContent of dimmerSliderValue with the scaled values
-  dimmerSliderValue.textContent = `${scaledValue0to100.toFixed(0)} % | ${scaledValue0to5.toFixed(2)} V`;
+  dimmerSliderValue.textContent = `${scaledValue0to100.toFixed(0)} % | ${scaledValue0to3.toFixed(2)} V`;
   
 // Delay slider
 delaySlider.addEventListener("input", function () {
