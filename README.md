@@ -1,4 +1,4 @@
-Link to other half of this projecy (ESP32 microcontroller implementation):
+Link to other half of this project (ESP32 microcontroller implementation):
 
 https://github.com/Galaksus/JouluvaloApp_ESP32
 
